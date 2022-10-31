@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to cart</title>
+    <style>
+        *{
+            align-items: center;
+            text-align: center;
+            background-color: teal;
+        }
+        #item-container>cartItems{
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+            width: 80%;
+            margin: auto;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Cart Items</h1>
+    <h2>Total Items: <span>0</span> </h2>
+    <!-- <h3>Total Cost in Rs <span>0</span> </h3> -->
+    
+    <div class="item-container"></div>
+</body>
+<script src="./Scripts/addtocart.js"></script>
+</html>
