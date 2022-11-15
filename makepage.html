@@ -27,7 +27,7 @@
         }
         #container{
                 display: grid;
-                grid-template-rows: 2% 98%;
+                grid-template-rows: 1% 99%;
         }
         #filterblock{
             display: grid;
@@ -40,21 +40,26 @@
         #sortcontainer{
             display: flex;
             justify-content: flex-end;
+            /* padding-top: -10px; */
+            height: 50px;
         }
         #itemcontainer{
             display: grid;
             grid-template-columns: repeat(3,1fr);
-
+            padding-top: 30px;
         }
         .category-btn{
             border: none;
-            background-color: transparent;  
+            /* background-color: transparent;   */
             display: contents;
             display: grid;
-            height: 30px;
+            height: 50px;
             text-align: left;
             font-family: sans-serif;
-            font-size: 14px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 20px;
+            color: red;
         }
         #buttons{
             display: grid;
@@ -329,26 +334,21 @@
         <div id="topbox">
         <div id="filterblock">
             <div id="buttons">
-                <div>Category</div>
-                
-                <button class="category-btn">Nail </button>
-                <button class="category-btn"> Lip Stick</button>
-                <button class="category-btn"> Eye Shadow</button>
-                <button class="category-btn"> Lip</button>
-                <button class="category-btn">Foundation </button>
-                <button class="category-btn"> Eye Liner</button>
+                <h1>Filter on basis of Price :</h2>
+                <button id="less500price" class="category-btn">Less then 500 Rs.</button>
+                <button id="inbetweenprice" class="category-btn">Between 500-2000 Rs.</button>
+                <button id="above2000price" class="category-btn"> Above 2000 Rs.</button>
             </div>
 
         </div>
         <div id ="container">
             <div id="sortcontainer">
                 SORT :  
-                <select name="SORT" id="sort">
-                    <option value="">Popularity</option>
-                    <option value="">Newest</option>
-                    <option value="">Price: Low to high</option>
-                    <option value="">Price: High to Low</option>
-                    <option value="">discount</option>
+                <select name="SORT" id="sort" >
+                    <option value=""> </option>
+                    <option value="lowtohigh">Price: Low to high</option>
+                    <option value="hightolow">Price: High to Low</option>
+                    
 
                 </select>
             </div>

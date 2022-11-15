@@ -1,13 +1,18 @@
-let cartItems=JSON.parse(localStorage.getItem("cart_item"))|| []
-// let total_price= cartItems.reduce(function (acc,el){
-//     return acc+(Number(el.price));
-// },0);
-document.querySelector("h2>span").innerText= cartItems.length ;
-// document.querySelector("h3>span").innerText= total_price;
+let cartArr=JSON.parse(localStorage.getItem('cartData'))
+console.log(cartArr)
+function setTotalPrice(){
+let total_price= cartArr.reduce(function (acc,el){
+    return acc+(Number(el.price));
+},0);
+document.querySelector("h2>span").innerText= cartArr.length ;
+document.querySelector("h3>span").innerText= total_price;
+}
 
-
-cartItems.forEach( function(el,i) {
-     
+let container=document.getElementById("items")
+appendCart(cartArr)
+function appendCart(data){
+    container.innerHTML=null;
+data.forEach( function(el,i) { 
      let card=document.createElement("div")
     let img=document.createElement("img")
     img.src= el.image_url;
@@ -22,26 +27,23 @@ cartItems.forEach( function(el,i) {
     let desc=document.createElement("p")
     desc.innerText=el.desc; 
 
-    let del=document.createElement("p")
-        del.innerText="Delete"
-        addEventListener("click", function(event){
-        event.target.parentNode.remove()
-        console.log(event)
-        deletefun(event)
+    let btn=document.createElement("button")
+        btn.innerText="Remove"
+        btn.addEventListener("click", function(){
+        // console.log(i)
+        deletefun(i)
         });    
-    card.append(img,offer,collection,name,price,desc,del)
-    document.querySelector(".item-container").append(card)
-    
-    localStorage.setItem("Data", "products" );
+    card.append(img,offer,collection,name,price,desc,btn)
+    container.append(card)
     
 });
-function deletefun(i){
-    // console.log(i)
-    cartItems.splice(i,1)
-    console.log(cartItems);
-    event.target.parentNode.remove();
-    document.querySelector("h2>span").innerText= cartItems.length ;
-    // document.querySelector("h3>span").innerText= total_price;
-    window.reload();
 }
+function deletefun(i){
+    cartArr.splice(i,1)  
+    localStorage.setItem("cartData", JSON.stringify(cartArr))
+    appendCart(cartArr)
+    setTotalPrice()
+    
+}
+setTotalPrice()
 
