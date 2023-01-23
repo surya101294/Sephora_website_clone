@@ -13,7 +13,7 @@ appendCart(cartArr)
 function appendCart(data){
     container.innerHTML=null;
 data.forEach( function(el,i) { 
-     let card=document.createElement("div")
+    let card=document.createElement("div")
     let img=document.createElement("img")
     img.src= el.image_url;
     let offer=document.createElement("p")
